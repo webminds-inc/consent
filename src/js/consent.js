@@ -10,8 +10,8 @@ window.__wmConsentInit = function (callback, __wmConsentBrand, __wmConsentPolicy
     }
 
     window.__wmConsentCss = window.__wmConsentCss.
-        replace('#3f51b5', __wmThemeColor).
-        replace('#575757', __wmTextColor);
+        replace('#712cf9', __wmThemeColor || '#712cf9').
+        replace('#575757', __wmTextColor || '#575757');
 
     var css = document.createElement('style');
     css.textContent = window.__wmConsentCss;
