@@ -111,6 +111,7 @@ window.__wmConsentInit = function (callback, __wmConsentBrand, __wmConsentPolicy
                             item.disabled = false;
                         }
                     });
+                    dns.checked = false;
                     __wmSetChangeButtons(false);
                     break;
                 case 'finish':
