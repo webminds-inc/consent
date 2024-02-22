@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "dev:css": "node _scripts/css.js",
+    "dev:html": "node _scripts/html.js",
+    "dev": "node _scripts/css.js && node _scripts/html.js",
+    "build": "node _scripts/css.js && node _scripts/html.js && node _scripts/build.js"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "terser": "^5.26.0"
+  }
+}
