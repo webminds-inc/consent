@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { spawnSync } = require('child_process');
 const { minify } = require("terser");
 
 const files = [
@@ -38,7 +37,6 @@ async function compress() {
         }
     });
     fs.writeFileSync(filename, minifiedCode.code);
-    spawnSync('cp', [filename, '../github/']);
 }
 
 compress();
