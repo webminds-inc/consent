@@ -12,6 +12,8 @@
 		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
 	font-size: 12px !important;
 	line-height: 1.7 !important;
+    letter-spacing: normal;
+	text-transform: none;
 }
 
 .__wmConsent {
