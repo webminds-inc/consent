@@ -16,6 +16,11 @@
 	text-transform: none;
 }
 
+.__wmConsent button:hover,
+.__wmConsent input:focus-within {
+	box-shadow: none;
+}
+
 .__wmConsent {
 	color: var(--text-color) !important;
 	position: fixed;
