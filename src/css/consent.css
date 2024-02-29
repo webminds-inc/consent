@@ -190,6 +190,13 @@
 	border-radius: 3px;
 }
 
+.__wmConsent .__wmButtonGroup button[value="preferences"] {
+	color: var(--theme-color);
+	background: none;
+	border-color: transparent;
+	text-decoration: underline;
+}
+
 .__wmConsent .__wmButtonGroup button:hover {
 	filter: brightness(85%);
 }
