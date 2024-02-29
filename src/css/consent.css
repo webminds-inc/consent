@@ -197,6 +197,11 @@
 	text-decoration: underline;
 }
 
+.__wmConsent .__wmButtonGroup button[value="decline"] {
+	color: var(--theme-color);
+	background: none;
+}
+
 .__wmConsent .__wmButtonGroup button:hover {
 	filter: brightness(85%);
 }
