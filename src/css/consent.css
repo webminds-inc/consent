@@ -33,6 +33,12 @@
     display: none;
 }
 
+.__wmConsent div,
+.__wmConsent p,
+.__wmConsent label {
+	color: var(--text-color);
+}
+
 .__wmConsent input,
 .__wmConsent button {
 	border: 0;
