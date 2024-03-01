@@ -196,13 +196,7 @@
 	border-radius: 3px;
 }
 
-.__wmConsent .__wmButtonGroup button[value="preferences"] {
-	color: var(--theme-color);
-	background: none;
-	border-color: transparent;
-	text-decoration: underline;
-}
-
+.__wmConsent .__wmButtonGroup button[value="preferences"],
 .__wmConsent .__wmButtonGroup button[value="decline"] {
 	color: var(--theme-color);
 	background: none;
