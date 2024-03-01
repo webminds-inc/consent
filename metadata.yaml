@@ -1,6 +1,6 @@
 homepage: "https://www.webminds.com"
 versions:
-  - sha: cd61c241d7ab83f0b855c5ab9a8cb9aeda324da8
+  - sha: 6f62fa6cbedc7f7e12aa059a72394a2509174f26
     changeNotes: Clean up & fix layout
   - sha: 95c2d38a68af0da0c1e6d443ec33298ebee8080d
     changeNotes: Initial Version
