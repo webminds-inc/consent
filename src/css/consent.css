@@ -15,7 +15,7 @@
 	font-size: 12px !important;
 	line-height: 1.7 !important;
 	font-weight: normal !important;
-    letter-spacing: normal !important;
+	letter-spacing: normal !important;
 	text-transform: none !important;
 	margin: 0;
 }
@@ -31,7 +31,7 @@
 	left: 0;
 	bottom: 0;
 	z-index: 2147483647;
-    display: none;
+	display: none;
 }
 
 .__wmConsent div,
@@ -51,7 +51,7 @@
 }
 
 .__wmConsent input {
-    color: var(--text-color) !important;
+	color: var(--text-color) !important;
 }
 
 .__wmConsent h2,
@@ -136,7 +136,7 @@
 
 .__wmConsentDescription {
 	display: none;
-    margin-left: 21px;
+	margin-left: 21px;
 }
 
 .__wmShow .__wmConsentDescription {
@@ -166,7 +166,7 @@
 
 .__wmConsent form {
 	background: #fff;
-	padding: 25px 30px;
+	padding: 10px 20px;
 	box-shadow: 0 0 35px rgba(0, 0, 0, 0.25);
 }
 
