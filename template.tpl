@@ -117,7 +117,10 @@ const onUserConsent = (consent) => {
       cookieVal += consentModeStates[key] === 'granted' ? 1 : 0;
     }
   }
-  setCookie(COOKIE_NAME, cookieVal);
+  setCookie(COOKIE_NAME, cookieVal, {
+    'path': '/',
+    'max-age': 8640000
+  });
   updateConsentState(consentModeStates);
   dataLayerPush({
     event: data.consentEventName,
@@ -150,7 +153,7 @@ if (savedSettings !== 'undefined' && savedSettings !== '') {
   onUserConsent(consentModeStates);
 } else {
   // Load consent banner script
-  const url = 'https://cdn.jsdelivr.net/gh/webminds-inc/consent/dist/consent.min.js?v=1';
+  const url = 'https://cdn.jsdelivr.net/gh/webminds-inc/consent/dist/consent.min.js';
   injectScript(url, function () {
       callInWindow(
           '__wmConsentInit',
