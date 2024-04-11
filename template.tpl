@@ -104,6 +104,7 @@ const defaultData = {
   'functionality_storage': 'denied',
   'personalization_storage': 'denied',
   'security_storage': 'denied',
+  'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IS', 'IE', 'IT', 'LV', 'LI', 'LT', 'LU', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'CH', 'GB', 'US-CA'],
   'wait_for_update': 500
 };
 
