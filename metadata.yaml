@@ -1,5 +1,7 @@
 homepage: "https://www.webminds.com"
 versions:
+  - sha: 14215067c447b066c188518189c19b5531277424
+    changeNotes: Fix default values
   - sha: 8a80ee09cc2bab40f05bd265a10330581db48180
     changeNotes: Fix incorrect format for template display name & set default consent state for specific regions
   - sha: 4de6fe27ea44ba2a198ebfac94e71977f8b3b8c7
