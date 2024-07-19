@@ -13,41 +13,6 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
         'security_storage'
     ];
 
-    var COUNTRIES = {
-        "AT": "Austria",
-        "BE": "Belgium",
-        "BG": "Bulgaria",
-        "HR": "Croatia",
-        "CY": "Cyprus",
-        "CZ": "Czech Republic",
-        "DK": "Denmark",
-        "EE": "Estonia",
-        "FI": "Finland",
-        "FR": "France",
-        "DE": "Germany",
-        "GR": "Greece",
-        "HU": "Hungary",
-        "IS": "Iceland",
-        "IE": "Ireland",
-        "IT": "Italy",
-        "LV": "Latvia",
-        "LI": "Liechtenstein",
-        "LT": "Lithuania",
-        "LU": "Luxembourg",
-        "MT": "Malta",
-        "NL": "Netherlands",
-        "NO": "Norway",
-        "PL": "Poland",
-        "PT": "Portugal",
-        "RO": "Romania",
-        "SK": "Slovakia",
-        "SI": "Slovenia",
-        "ES": "Spain",
-        "SE": "Sweden",
-        "CH": "Switzerland",
-        "GB": "United Kingdom"
-    };
-
     function showBanner() {
         var head = document.getElementsByTagName('head')[0];
         if (!head || !window.__wmConsentCss || !window.__wmConsentHTML) {
@@ -105,9 +70,6 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
                 });
                 data[key] = hasGranted === true ? GRANTED : DENIED;
             });
-            //checkboxes.forEach(function(input) {
-            //    console.log(input.name, input.value, input.checked);
-            //});
             callback.call(this, data);
             container.parentNode.removeChild(container);
         }
@@ -186,38 +148,7 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
                 __wmSetChangeButtons(checked);
             });
         });
-
     }
 
-    function grantedAll() {
-        var data = {};
-        CONSENT.forEach(function(key) {
-            data[key] = GRANTED;
-        });
-        callback.call(this, data);
-    }
-
-    fetch('https://www.cloudflare.com/cdn-cgi/trace').
-        then(function(response) {
-            return response.text();
-        }).then(function(data) {
-            var params = data.split("\n");
-            var obj = {};
-            params.forEach(function(item) {
-                var str = item.trim();
-                if (str !== '') {
-                    var val = item.split(/\s*=\s*/);
-                    if (val.length === 2) {
-                        obj[val[0]] = val[1];
-                    }
-                }
-            });
-            if (typeof obj.loc !== 'undefined' && typeof COUNTRIES[obj.loc.toUpperCase()] !== 'undefined') {
-                showBanner();
-            } else {
-                grantedAll();
-            }
-        }).catch(function() {
-            grantedAll();
-        });
+    return showBanner();
 };
