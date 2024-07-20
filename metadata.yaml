@@ -1,5 +1,7 @@
 homepage: "https://www.webminds.com"
 versions:
+  - sha: cdc43a5611fa8da149c0c0870ea7d7de783f28f9
+    changeNotes: Clean up functions
   - sha: 8f964cd03912a44c60ce53e747b033aee8d13643
     changeNotes: Clean up functions
   - sha: 14215067c447b066c188518189c19b5531277424
