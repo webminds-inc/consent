@@ -95,6 +95,7 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
         }
 
         function __wmConsentUpdateCustom() {
+            container.parentNode.removeChild(container);
             var data = {};
             CONSENT.forEach(function(key) {
                 var hasGranted = false;
@@ -106,7 +107,6 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
                 data[key] = hasGranted === true ? GRANTED : DENIED;
             });
             callback.call(this, data);
-            container.parentNode.removeChild(container);
         }
 
         function __wmConsentUpdate(val) {

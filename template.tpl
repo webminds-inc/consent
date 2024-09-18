@@ -112,7 +112,7 @@ const onUserConsent = (consent) => {
   let cookieVal = '';
   const consentModeStates = {};
   for (let key in defaultData) {
-    if (key !== 'wait_for_update') {
+    if (key !== 'wait_for_update' && key !== 'region') {
       const val = consent[key];
       consentModeStates[key] = val ? val : 'denied';
       cookieVal += consentModeStates[key] === 'granted' ? 1 : 0;
