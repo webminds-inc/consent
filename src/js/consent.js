@@ -1,52 +1,15 @@
-window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy, __wmThemeColor, __wmTextColor) {
+window.__wmConsentInit = function(
+    callback, 
+    __wmConsentBrand, 
+    __wmConsentPolicy, 
+    __wmThemeColor, 
+    __wmTextColor,
+    __wmDefaultData
+) {
     var PREFIX = '__wmConsent';
-    var DENIED = 'denied';
-    var GRANTED = 'granted';
-    var DNS = 'do_not_sell';
-    var CONSENT = [
-        'ad_storage',
-        'ad_user_data',
-        'ad_personalization',
-        'analytics_storage',
-        'functionality_storage',
-        'personalization_storage',
-        'security_storage'
-    ];
-
-    var COUNTRIES = {
-        "AT": "Austria",
-        "BE": "Belgium",
-        "BG": "Bulgaria",
-        "HR": "Croatia",
-        "CY": "Cyprus",
-        "CZ": "Czech Republic",
-        "DK": "Denmark",
-        "EE": "Estonia",
-        "FI": "Finland",
-        "FR": "France",
-        "DE": "Germany",
-        "GR": "Greece",
-        "HU": "Hungary",
-        "IS": "Iceland",
-        "IE": "Ireland",
-        "IT": "Italy",
-        "LV": "Latvia",
-        "LI": "Liechtenstein",
-        "LT": "Lithuania",
-        "LU": "Luxembourg",
-        "MT": "Malta",
-        "NL": "Netherlands",
-        "NO": "Norway",
-        "PL": "Poland",
-        "PT": "Portugal",
-        "RO": "Romania",
-        "SK": "Slovakia",
-        "SI": "Slovenia",
-        "ES": "Spain",
-        "SE": "Sweden",
-        "CH": "Switzerland",
-        "GB": "United Kingdom"
-    };
+    var CONSENT = Object.keys(__wmDefaultData).filter(function(key) {
+        return key !== 'region' && key !== 'wait_for_update';
+    });
 
     function showBanner() {
         var head = document.getElementsByTagName('head')[0];
@@ -73,8 +36,8 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
         document.body.appendChild(container);
 
         var form = container.querySelector('form');
-        var checkboxes = container.querySelectorAll('input[type="checkbox"]:not([name="essential_cookies"]):not([name="' + DNS + '"])');
-        var dns = container.querySelector('input[name="' + DNS + '"]');
+        var checkboxes = container.querySelectorAll('input[type="checkbox"]:not([name="essential_cookies"]):not([name="do_not_sell"])');
+        var dns = container.querySelector('input[name="do_not_sell"]');
 
         if (form && __wmConsentPolicy && /https?:\/\//.test(__wmConsentPolicy)) {
             form.action = __wmConsentPolicy;
@@ -103,7 +66,7 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
                         hasGranted = true;
                     }
                 });
-                data[key] = hasGranted === true ? GRANTED : DENIED;
+                data[key] = hasGranted === true ? 'granted' : 'denied';
             });
             container.parentNode.removeChild(container);
             callback.call(this, data);
@@ -111,9 +74,9 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
 
         function __wmConsentUpdate(val) {
             checkboxes.forEach(function(input) {
-                input.checked = val === GRANTED;
+                input.checked = val === 'granted';
             });
-            dns.checked = val === DENIED;
+            dns.checked = val === 'denied';
             __wmConsentUpdateCustom();
         }
 
@@ -152,10 +115,10 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
                         __wmConsentUpdateCustom();
                         break;
                     case 'decline':
-                        __wmConsentUpdate(DENIED);
+                        __wmConsentUpdate('denied');
                         break;
                     case 'allow':
-                        __wmConsentUpdate(GRANTED);
+                        __wmConsentUpdate('granted');
                         break;
                 };
             });
@@ -189,7 +152,7 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
     function grantedAll() {
         var data = {};
         CONSENT.forEach(function(key) {
-            data[key] = GRANTED;
+            data[key] = 'granted';
         });
         callback.call(this, data);
     }
@@ -209,7 +172,9 @@ window.__wmConsentInit = function(callback, __wmConsentBrand, __wmConsentPolicy,
                     }
                 }
             });
-            if (typeof obj.loc !== 'undefined' && typeof COUNTRIES[obj.loc.toUpperCase()] !== 'undefined') {
+            if (typeof obj.loc !== 'undefined' && 
+                typeof __wmDefaultData.region !== 'undefined' &&
+                typeof __wmDefaultData.region.includes(obj.loc.toUpperCase())) {
                 showBanner();
             } else {
                 grantedAll();

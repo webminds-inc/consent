@@ -8,5 +8,8 @@
   "devDependencies": {
     "clean-css": "^5.3.3",
     "terser": "^5.26.0"
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.5"
   }
 }

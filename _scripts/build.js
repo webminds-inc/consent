@@ -6,9 +6,10 @@ const files = [
     "./src/js/html.js",
     "./src/js/consent.js",
 ];
+const args = process.argv.slice(2) + '';
 
 async function compress() {
-    let filename = './dist/consent.min.js';
+    let filename = './dist/consent' + (args ? '.' + args : '') + '.min.js';
     let originalCode = "";
     files.forEach(js => {
         originalCode += fs.readFileSync(js, 'utf8') + ";\n\n";
