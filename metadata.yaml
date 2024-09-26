@@ -1,5 +1,7 @@
 homepage: "https://www.webminds.com"
 versions:
+  - sha: 79819e4d680480e80d1318c34af1fc66103f7a5b
+    changeNotes: Update to simpler version
   - sha: d23f6d24f8514b82837daa4367aabb5609479262
     changeNotes: Fix overwrite region
   - sha: cdc43a5611fa8da149c0c0870ea7d7de783f28f9
