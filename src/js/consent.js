@@ -174,7 +174,7 @@ window.__wmConsentInit = function(
             });
             if (typeof obj.loc !== 'undefined' && 
                 typeof __wmDefaultData.region !== 'undefined' &&
-                typeof __wmDefaultData.region.includes(obj.loc.toUpperCase())) {
+                __wmDefaultData.region.includes(obj.loc.toUpperCase())) {
                 showBanner();
             } else {
                 grantedAll();
